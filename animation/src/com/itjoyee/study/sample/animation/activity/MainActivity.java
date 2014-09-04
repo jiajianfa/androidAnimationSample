@@ -187,8 +187,10 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
 		case 0:
 
 			if (this.preIndex > paramInt) {
-				this.t2_icon1.getAnimation().cancel();
-				this.t2_icon1.setVisibility(View.INVISIBLE);
+				if (this.t2_icon1.getAnimation() != null) {
+					this.t2_icon1.getAnimation().cancel();
+					this.t2_icon1.setVisibility(View.INVISIBLE);
+				}
 			}
 
 			// 图片切换 帧帧动画
@@ -246,28 +248,28 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
 			localTranslateAnimation1.setRepeatMode(1);
 			LinearInterpolator localLinearInterpolator = new LinearInterpolator();
 			localTranslateAnimation1.setInterpolator(localLinearInterpolator);
-			
+
 			final TranslateAnimation localTranslateAnimation2 = new TranslateAnimation(this.fx2, this.tx2, this.fy2,
 					this.ty2);
 			localTranslateAnimation2.setDuration(1200L);
 			localTranslateAnimation2.setRepeatCount(-1);
 			localTranslateAnimation2.setRepeatMode(1);
 			localTranslateAnimation2.setInterpolator(localLinearInterpolator);
-			
+
 			final TranslateAnimation localTranslateAnimation3 = new TranslateAnimation(this.fx3, this.tx3, this.fy3,
 					this.ty3);
 			localTranslateAnimation3.setDuration(1200L);
 			localTranslateAnimation3.setRepeatCount(-1);
 			localTranslateAnimation3.setRepeatMode(1);
 			localTranslateAnimation3.setInterpolator(localLinearInterpolator);
-			
+
 			final TranslateAnimation localTranslateAnimation4 = new TranslateAnimation(this.fx4, this.tx4, this.fy4,
 					this.ty4);
 			localTranslateAnimation4.setDuration(800L);
 			localTranslateAnimation4.setRepeatCount(-1);
 			localTranslateAnimation4.setRepeatMode(1);
 			localTranslateAnimation4.setInterpolator(localLinearInterpolator);
-			
+
 			new Handler() {
 				public void handleMessage(Message paramAnonymousMessage) {
 					if (paramAnonymousMessage.what == 1) {
@@ -283,7 +285,7 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
 					}
 				}
 			}.sendEmptyMessageDelayed(1, 1000L);
-			
+
 			this.t3_fixed.startAnimation(this.animationTop);
 			this.t3_next.startAnimation(this.animationBottom);
 
@@ -312,113 +314,7 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
 		default:
 			break;
 		}
-
 		preIndex = paramInt;
-
-		//		while (true) {
-		//			this.preIndex = paramInt;
-		//			return;
-		//			if (this.preIndex > paramInt)
-		//			{
-		//				this.t2_icon1.setVisibility(4);
-		//			}
-		//			this.t1_icon1.setImageResource(2130837510);
-		//			this.t1_icon1_animationDrawable = ((AnimationDrawable) this.t1_icon1.getDrawable());
-		//			this.t1_icon1_animationDrawable.start();
-		//			Animation localAnimation2 = AnimationUtils.loadAnimation(this, 2130968577);
-		//			localAnimation2.setInterpolator(new LinearInterpolator());
-		//			this.t1_icon2.setVisibility(0);
-		//			this.t1_icon2.startAnimation(localAnimation2);
-		//			this.animationTop = AnimationUtils.loadAnimation(this, 2130968579);
-		//			this.animationBottom = AnimationUtils.loadAnimation(this, 2130968576);
-		//			this.t1_fixed.startAnimation(this.animationTop);
-		//			this.t1_next.startAnimation(this.animationBottom);
-		//			continue;
-		//			if (this.preIndex > paramInt) {
-		//				this.t3_icon2.getAnimation().cancel();
-		//				this.t3_icon3.getAnimation().cancel();
-		//				this.t3_icon4.getAnimation().cancel();
-		//				this.t3_icon5.getAnimation().cancel();
-		//				this.t3_icon2.setVisibility(4);
-		//				this.t3_icon3.setVisibility(4);
-		//				this.t3_icon4.setVisibility(4);
-		//				this.t3_icon5.setVisibility(4);
-		//				this.t3_icon6_animationDrawable.stop();
-		//			}
-		//			while (true) {
-		//				Animation localAnimation1 = AnimationUtils.loadAnimation(this, 2130968578);
-		//				this.t2_icon1.setVisibility(0);
-		//				this.t2_icon1.startAnimation(localAnimation1);
-		//				this.t2_fixed.startAnimation(this.animationTop);
-		//				this.t2_next.startAnimation(this.animationBottom);
-		//				break;
-		//				this.t1_icon1_animationDrawable.stop();
-		//				this.t1_icon2.getAnimation().cancel();
-		//				this.t1_icon2.setVisibility(4);
-		//			}
-		//			this.t3_icon6.setImageResource(2130837517);
-		//			this.t3_icon6_animationDrawable = ((AnimationDrawable) this.t3_icon6.getDrawable());
-		//			final TranslateAnimation localTranslateAnimation1 = new TranslateAnimation(this.fx1, this.tx1, this.fy1,
-		//					this.ty1);
-		//			localTranslateAnimation1.setDuration(800L);
-		//			localTranslateAnimation1.setRepeatCount(-1);
-		//			localTranslateAnimation1.setRepeatMode(1);
-		//			LinearInterpolator localLinearInterpolator = new LinearInterpolator();
-		//			localTranslateAnimation1.setInterpolator(localLinearInterpolator);
-		//			final TranslateAnimation localTranslateAnimation2 = new TranslateAnimation(this.fx2, this.tx2, this.fy2,
-		//					this.ty2);
-		//			localTranslateAnimation2.setDuration(1200L);
-		//			localTranslateAnimation2.setRepeatCount(-1);
-		//			localTranslateAnimation2.setRepeatMode(1);
-		//			localTranslateAnimation2.setInterpolator(localLinearInterpolator);
-		//			final TranslateAnimation localTranslateAnimation3 = new TranslateAnimation(this.fx3, this.tx3, this.fy3,
-		//					this.ty3);
-		//			localTranslateAnimation3.setDuration(1200L);
-		//			localTranslateAnimation3.setRepeatCount(-1);
-		//			localTranslateAnimation3.setRepeatMode(1);
-		//			localTranslateAnimation3.setInterpolator(localLinearInterpolator);
-		//			final TranslateAnimation localTranslateAnimation4 = new TranslateAnimation(this.fx4, this.tx4, this.fy4,
-		//					this.ty4);
-		//			localTranslateAnimation4.setDuration(800L);
-		//			localTranslateAnimation4.setRepeatCount(-1);
-		//			localTranslateAnimation4.setRepeatMode(1);
-		//			localTranslateAnimation4.setInterpolator(localLinearInterpolator);
-		//			new Handler() {
-		//				public void handleMessage(Message paramAnonymousMessage) {
-		//					if (paramAnonymousMessage.what == 1) {
-		//						MainActivity.this.t3_icon2.setVisibility(0);
-		//						MainActivity.this.t3_icon3.setVisibility(0);
-		//						MainActivity.this.t3_icon4.setVisibility(0);
-		//						MainActivity.this.t3_icon5.setVisibility(0);
-		//						MainActivity.this.t3_icon2.startAnimation(localTranslateAnimation1);
-		//						MainActivity.this.t3_icon3.startAnimation(localTranslateAnimation2);
-		//						MainActivity.this.t3_icon4.startAnimation(localTranslateAnimation3);
-		//						MainActivity.this.t3_icon5.startAnimation(localTranslateAnimation4);
-		//						MainActivity.this.t3_icon6_animationDrawable.start();
-		//					}
-		//				}
-		//			}.sendEmptyMessageDelayed(1, 1000L);
-		//			this.t3_fixed.startAnimation(this.animationTop);
-		//			this.t3_next.startAnimation(this.animationBottom);
-		//			continue;
-		//			this.t3_icon2.getAnimation().cancel();
-		//			this.t3_icon3.getAnimation().cancel();
-		//			this.t3_icon4.getAnimation().cancel();
-		//			this.t3_icon5.getAnimation().cancel();
-		//			this.t3_icon2.setVisibility(4);
-		//			this.t3_icon3.setVisibility(4);
-		//			this.t3_icon4.setVisibility(4);
-		//			this.t3_icon5.setVisibility(4);
-		//			this.t3_icon6_animationDrawable.stop();
-		//			CycleInterpolator localCycleInterpolator = new CycleInterpolator(3.0F);
-		//			RotateAnimation localRotateAnimation = new RotateAnimation(0.0F, 10.0F, 1, 0.47F, 1, 0.05F);
-		//			localRotateAnimation.setStartOffset(500L);
-		//			localRotateAnimation.setDuration(3000L);
-		//			localRotateAnimation.setRepeatCount(1);
-		//			localRotateAnimation.setInterpolator(localCycleInterpolator);
-		//			this.t4_icon1.startAnimation(localRotateAnimation);
-		//			this.t4_fixed.startAnimation(this.animationTop);
-		//		}
 	}
 
 }
