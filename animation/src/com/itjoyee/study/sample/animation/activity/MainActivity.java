@@ -187,10 +187,8 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
 		case 0:
 
 			if (this.preIndex > paramInt) {
-				if (this.t2_icon1.getAnimation() != null) {
-					this.t2_icon1.getAnimation().cancel();
-					this.t2_icon1.setVisibility(View.INVISIBLE);
-				}
+				cancleAnimation(t2_icon1);
+				this.t2_icon1.setVisibility(View.INVISIBLE);
 			}
 
 			// 图片切换 帧帧动画
@@ -214,10 +212,10 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
 			break;
 		case 1:
 			if (preIndex > paramInt) {
-				this.t3_icon2.getAnimation().cancel();
-				this.t3_icon3.getAnimation().cancel();
-				this.t3_icon4.getAnimation().cancel();
-				this.t3_icon5.getAnimation().cancel();
+				cancleAnimation(t3_icon2);
+				cancleAnimation(t3_icon3);
+				cancleAnimation(t3_icon4);
+				cancleAnimation(t3_icon5);
 				this.t3_icon2.setVisibility(View.INVISIBLE);
 				this.t3_icon3.setVisibility(View.INVISIBLE);
 				this.t3_icon4.setVisibility(View.INVISIBLE);
@@ -226,7 +224,7 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
 			} else {
 				this.t1_icon1_animationDrawable.stop();
 
-				this.t1_icon2.getAnimation().cancel();
+				cancleAnimation(t1_icon2);
 				this.t1_icon2.setVisibility(View.INVISIBLE);
 			}
 
@@ -292,17 +290,17 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
 			break;
 		case 3:
 
-			this.t3_icon2.getAnimation().cancel();
-			this.t3_icon3.getAnimation().cancel();
-			this.t3_icon4.getAnimation().cancel();
-			this.t3_icon5.getAnimation().cancel();
+			cancleAnimation(t3_icon2);
+			cancleAnimation(t3_icon3);
+			cancleAnimation(t3_icon4);
+			cancleAnimation(t3_icon5);
 			this.t3_icon2.setVisibility(View.INVISIBLE);
 			this.t3_icon3.setVisibility(View.INVISIBLE);
 			this.t3_icon4.setVisibility(View.INVISIBLE);
 			this.t3_icon5.setVisibility(View.INVISIBLE);
 			this.t3_icon6_animationDrawable.stop();
 
-			CycleInterpolator localCycleInterpolator = new CycleInterpolator(3.0F);
+			CycleInterpolator localCycleInterpolator = new CycleInterpolator(4.0F);
 			RotateAnimation localRotateAnimation = new RotateAnimation(0.0F, 10.0F, 1, 0.47F, 1, 0.05F);
 			localRotateAnimation.setStartOffset(500L);
 			localRotateAnimation.setDuration(3000L);
@@ -315,6 +313,13 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
 			break;
 		}
 		preIndex = paramInt;
+	}
+	
+	private void cancleAnimation(View view){
+		Animation anim = view.getAnimation();
+		if(anim!=null){
+			anim.cancel();
+		}
 	}
 
 }
